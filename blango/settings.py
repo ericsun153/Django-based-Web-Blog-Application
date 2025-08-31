@@ -56,6 +56,9 @@ class Dev(Configuration):
         "blango_auth",
     ]
 
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    ACCOUNT_ACTIVATION_DAYS = 7
+
     MIDDLEWARE = [
         "debug_toolbar.middleware.DebugToolbarMiddleware",
         'django.middleware.security.SecurityMiddleware',
