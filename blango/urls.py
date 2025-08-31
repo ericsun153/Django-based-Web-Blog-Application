@@ -24,6 +24,8 @@ import blog.views
 from django_registration.backends.activation.views import RegistrationView
 from blango_auth.forms import BlangoRegistrationForm
 
+include("django.contrib.auth.urls")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", blog.views.index),
@@ -37,6 +39,7 @@ urlpatterns = [
         name="django_registration_register",
     ),
     path("accounts/", include("django_registration.backends.activation.urls")),
+    path("accounts/", include("allauth.urls")),
 ]
 
 if settings.DEBUG:
